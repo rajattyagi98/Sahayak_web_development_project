@@ -1,0 +1,16 @@
+Now, we can create students and teachers in the admin interface or using the Django shell:
+
+Python
+>>> from .models import Student, Teacher
+
+>>> student = Student.objects.create(name="Alice")
+>>> teacher = Teacher.objects.create(name="Bob")
+
+>>> student.teachers.add(teacher)
+>>> teacher.students.add(student)
+
+>>> student.teachers.all()
+<QuerySet [<Teacher: Bob>]>
+
+>>> teacher.students.all()
+<QuerySet [<Student: Alice>]>
